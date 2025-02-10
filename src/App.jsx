@@ -1,6 +1,6 @@
 import Hero from "./components/Hero"
 import Highlights from "./components/Highlights"
-import Navbar from "./components/navbar"
+import Navbar from "./components/Navbar"
 import Model from "./components/Model"
 import Footer from "./components/Footer"
 
