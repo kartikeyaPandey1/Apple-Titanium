@@ -33,19 +33,19 @@ const Model = () => {
     const tl = gsap.timeline();
 
     useEffect(() => {
-      if(size === 'large') {
-        animateWithGsapTimeline(tl, small, smallRotation, '#view1', '#view2', {
-          transform: 'translateX(-100%)',
-          duration: 2
-        })
-      }
-  
-      if(size ==='small') {
-        animateWithGsapTimeline(tl, large, largeRotation, '#view2', '#view1', {
-          transform: 'translateX(0)',
-          duration: 2
-        })
-      }
+        if (size === 'large') {
+            animateWithGsapTimeline(tl, small, smallRotation, '#view1', '#view2', {
+                transform: 'translateX(-100%)',
+                duration: 2
+            })
+        }
+
+        if (size === 'small') {
+            animateWithGsapTimeline(tl, large, largeRotation, '#view2', '#view1', {
+                transform: 'translateX(0)',
+                duration: 2
+            })
+        }
     }, [size])
 
 
@@ -98,21 +98,22 @@ const Model = () => {
 
                         />
                         <Canvas
-                        className="w-full h-full"
-                        style={{
-                            position:'fixed',
-                            top:0,
-                            bottom:0,
-                            left:0,
-                            right:0,
-                            overflow:'hidden'
-                        }}
-                        eventSource={document.getElementById('root')}
-                        
+                            className="w-full h-full"
+                            style={{
+                                position: 'fixed',
+                                top: 0,
+                                bottom: 0,
+                                left: 0,
+                                right: 0,
+                                overflow: 'hidden',
+                            }}
+                            eventSource={document.getElementById('root')}
                         >
-                            <View.Port/>
+                            {/* Ensure that only 3D objects are here */}
+                            <View.Port /> {/* Ensure this is the correct usage */}
                         </Canvas>
-                        
+
+
 
                     </div>
 
@@ -121,27 +122,28 @@ const Model = () => {
 
                         <div className="flex-center">
                             <ul className="color-container">
-                                {models.map((item,i)=>(
+                                {models.map((item, i) => (
                                     <li key={i} className="w-6 h-6 rounded-full mx-2 cursor-pointer" style={{
-                                        backgroundColor:item.color[0]
-                                        
+                                        backgroundColor: item.color[0]
+
                                     }}
-                                    onClick={()=> setModel(item)}
+                                        onClick={() => setModel(item)}
                                     />
 
-                                    
+
                                 ))}
 
                             </ul>
 
                             <button className="size-btn-container">
-                                {sizes.map(({label,value})=>(
+                                {sizes.map(({ label, value }) => (
                                     <span key={label} className="size-btn"
-                                    style={{backgroundColor:size===value?'white' :'transparent',
-                                        color:size===value?'black' :'white'
-                                    }}
-                                    onClick={()=> setSize(value)}
-                                    
+                                        style={{
+                                            backgroundColor: size === value ? 'white' : 'transparent',
+                                            color: size === value ? 'black' : 'white'
+                                        }}
+                                        onClick={() => setSize(value)}
+
                                     >
                                         {label}
 
